@@ -19,15 +19,20 @@ const adaletData = [
 
 // Sayı animasyonu için Counter componenti
 const Counter = ({ to, duration = 2 }: { to: number, duration?: number }) => {
-  const count = useMotionValue(0);
-  const formatted = useTransform(count, (latest) => Math.round(latest).toLocaleString('tr-TR'));
+  const [value, setValue] = useState(0);
   
   useEffect(() => {
-      const controls = animate(count, to, { duration, ease: "easeOut" });
+      const controls = animate(0, to, { 
+        duration, 
+        ease: "easeOut",
+        onUpdate: (latest) => {
+          setValue(Math.round(latest));
+        }
+      });
       return controls.stop;
-  }, [count, to, duration]);
+  }, [to, duration]);
 
-  return <motion.span>{formatted}</motion.span>;
+  return <span>{value.toLocaleString('tr-TR')}</span>;
 };
 
 export default function App() {
@@ -257,7 +262,7 @@ export default function App() {
           <Step id="adalet" index={2} activeStep={activeStep} onStepEnter={setActiveStep}>
             <AlertTriangle className="w-10 h-10 text-brand mb-6" />
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-slate-900">Tedbir Kararları Enflasyonu</h2>
-            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1170&auto=format&fit=crop" alt="Tedbir Kararları" className="w-full object-cover aspect-video mb-8 opacity-80 mix-blend-multiply contrast-125 brightness-90 border border-slate-200 pointer-events-none" />
+            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop" alt="Tedbir Kararları" className="w-full object-cover aspect-video mb-8 opacity-80 mix-blend-multiply contrast-125 brightness-90 border border-slate-200 pointer-events-none" />
             <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed">
               <p>
                 Kan ve şiddetin gölgesinde adalet arayışı uçsuz bucaksız bir çaresizlikle boğuşuyor. Adalet Bakanlığı’nın 2025 istatistikleri, idari mahkemelerin ve emniyet güçlerinin nasıl bir evrak ve süreç yükü altında ezildiğini şeffaf bir şekilde netleştiriyor.
@@ -293,7 +298,7 @@ export default function App() {
           <Step id="ahlaki" index={4} activeStep={activeStep} onStepEnter={setActiveStep}>
             <div className="w-8 h-8 bg-brand mb-6" />
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-slate-900">Yekûn: Ahlaki Çözülme</h2>
-            <img src="https://images.unsplash.com/photo-1581007871115-f14bc016e0a4?q=80&w=1170&auto=format&fit=crop" alt="Ahlaki Çözülme" className="w-full object-cover aspect-video mb-8 opacity-80 mix-blend-multiply contrast-125 brightness-90 border border-slate-200 pointer-events-none" />
+            <img src="https://images.unsplash.com/photo-1549487195-2c9ff7bd9ad1?q=80&w=1200&auto=format&fit=crop" alt="Ahlaki Çözülme" className="w-full object-cover aspect-video mb-8 opacity-80 mix-blend-multiply contrast-125 brightness-90 border border-slate-200 pointer-events-none" />
             <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed">
               <p>
                 <em className="text-slate-800 font-bold">"Ekonomik kriz yok, çürüme var."</em> Ekonomi gazetelerinin bile doğrudan manşetlerine taşınan bu yakıcı teşhis, içine sürüklendiğimiz dönemin belgesidir. Cebimizdeki paranın enflasyon karşısında erimesinden çok daha sinsi ve yıkıcı olan gerçek, insana, hukuka, adalete ve birbirimize olan merhametimizin tükenmesidir.
