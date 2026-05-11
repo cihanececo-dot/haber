@@ -17,15 +17,15 @@ export function Step({ id, index, activeStep, children, onStepEnter }: StepProps
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          if (entry.isIntersecting) {
             onStepEnter(index);
           }
         });
       },
       {
         root: null,
-        rootMargin: '-10% 0px -40% 0px',
-        threshold: 0.5,
+        rootMargin: '-30% 0px -40% 0px',
+        threshold: 0,
       }
     );
 

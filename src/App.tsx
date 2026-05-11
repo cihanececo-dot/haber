@@ -46,8 +46,8 @@ export default function App() {
         <AnimatePresence mode="wait">
           {step === 0 && (
             <motion.div key="v0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col items-center">
-              <h1 className="text-[12vw] md:text-[6vw] font-bold tracking-tighter uppercase leading-none text-slate-200">
-                <span className="glitch opacity-30" data-text="ÇÜRÜME">ÇÜRÜME</span>
+              <h1 className="text-[12vw] md:text-[6vw] font-bold tracking-tighter uppercase leading-none text-slate-800">
+                <span className="glitch opacity-80" data-text="ÇÜRÜME">ÇÜRÜME</span>
               </h1>
               <div className="mt-8 border border-slate-300 p-4 text-xs text-brand tracking-widest uppercase bg-white/50 backdrop-blur">
                 Anomali Tespiti
@@ -244,7 +244,7 @@ export default function App() {
           <Step id="siddet" index={1} activeStep={activeStep} onStepEnter={setActiveStep}>
             <Crosshair className="w-10 h-10 text-brand mb-6" />
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-slate-900">Şiddetin Sıradanlaşması</h2>
-            <img src="https://images.unsplash.com/photo-1605806616949-1e87b487fc2f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Şiddetin Sıradanlaşması" className="w-full object-cover aspect-video mb-8 opacity-80 mix-blend-multiply contrast-125 brightness-90 border border-slate-200 pointer-events-none" />
+            <img src="https://images.unsplash.com/photo-1605806616949-1e87b487fc2f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Şiddetin Sıradanlaşması" className="w-full object-cover aspect-video mb-8 grayscale opacity-90 border border-slate-200 pointer-events-none shadow-sm" />
             <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed">
               <p>
                 Umut Vakfı'nın hazırladığı 2025 raporunu açtığınızda karşınızda sadece sayılar değil, sönen hayatlar ve kararan evler beliriyor. Türkiye genelinde sadece bir yıl içinde <strong>3.422 silahlı şiddet olayı</strong> haber merkezlerine ve polis telsizlerine düştü. Artık haber bültenlerindeki üçüncü sayfa şiddeti, gündelik yaşamın arka plan gürültüsü haline geldi.
@@ -262,7 +262,7 @@ export default function App() {
           <Step id="adalet" index={2} activeStep={activeStep} onStepEnter={setActiveStep}>
             <AlertTriangle className="w-10 h-10 text-brand mb-6" />
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-slate-900">Tedbir Kararları Enflasyonu</h2>
-            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop" alt="Tedbir Kararları" className="w-full object-cover aspect-video mb-8 opacity-80 mix-blend-multiply contrast-125 brightness-90 border border-slate-200 pointer-events-none" />
+            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop" alt="Tedbir Kararları" className="w-full object-cover aspect-video mb-8 grayscale opacity-90 border border-slate-200 pointer-events-none shadow-sm" />
             <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed">
               <p>
                 Kan ve şiddetin gölgesinde adalet arayışı uçsuz bucaksız bir çaresizlikle boğuşuyor. Adalet Bakanlığı’nın 2025 istatistikleri, idari mahkemelerin ve emniyet güçlerinin nasıl bir evrak ve süreç yükü altında ezildiğini şeffaf bir şekilde netleştiriyor.
@@ -280,7 +280,7 @@ export default function App() {
           <Step id="dijital" index={3} activeStep={activeStep} onStepEnter={setActiveStep}>
             <Users className="w-10 h-10 text-brand mb-6" />
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-slate-900">Linç Kültürü ve Yalnızlaşma</h2>
-            <img src="https://images.unsplash.com/photo-1557081998-05f784dcdd41?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dijital Çürüme" className="w-full object-cover aspect-video mb-8 opacity-80 mix-blend-multiply contrast-125 brightness-90 border border-slate-200 pointer-events-none" />
+            <img src="https://images.unsplash.com/photo-1557081998-05f784dcdd41?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dijital Çürüme" className="w-full object-cover aspect-video mb-8 grayscale opacity-90 border border-slate-200 pointer-events-none shadow-sm" />
             <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed">
               <p>
                 Çürüme sadece fiziksel sokaklarımızı değil, saatlerimizi geçirdiğimiz dijital mahalleleri de ele geçirmiş durumda. Modern insan, karanlık bir odadaki derin yalnızlığını, klavye başında başkalarına acımasızca saldırarak gidermeye çalışıyor.
@@ -298,7 +298,7 @@ export default function App() {
           <Step id="ahlaki" index={4} activeStep={activeStep} onStepEnter={setActiveStep}>
             <div className="w-8 h-8 bg-brand mb-6" />
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-slate-900">Yekûn: Ahlaki Çözülme</h2>
-            <img src="https://images.unsplash.com/photo-1549487195-2c9ff7bd9ad1?q=80&w=1200&auto=format&fit=crop" alt="Ahlaki Çözülme" className="w-full object-cover aspect-video mb-8 opacity-80 mix-blend-multiply contrast-125 brightness-90 border border-slate-200 pointer-events-none" />
+            <img src="https://images.unsplash.com/photo-1549487195-2c9ff7bd9ad1?q=80&w=1200&auto=format&fit=crop" alt="Ahlaki Çözülme" className="w-full object-cover aspect-video mb-8 grayscale opacity-90 border border-slate-200 pointer-events-none shadow-sm" />
             <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed">
               <p>
                 <em className="text-slate-800 font-bold">"Ekonomik kriz yok, çürüme var."</em> Ekonomi gazetelerinin bile doğrudan manşetlerine taşınan bu yakıcı teşhis, içine sürüklendiğimiz dönemin belgesidir. Cebimizdeki paranın enflasyon karşısında erimesinden çok daha sinsi ve yıkıcı olan gerçek, insana, hukuka, adalete ve birbirimize olan merhametimizin tükenmesidir.
@@ -329,7 +329,7 @@ export default function App() {
       </div>
       
       {/* Mobile view floating visual */}
-      <div className="md:hidden fixed z-[5] top-0 left-0 w-full h-full opacity-10 pointer-events-none grayscale mix-blend-multiply">
+      <div className="md:hidden fixed z-[5] top-0 left-0 w-full h-full opacity-[0.05] pointer-events-none grayscale">
          <VisualGraphics step={activeStep} />
       </div>
 
