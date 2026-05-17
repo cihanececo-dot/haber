@@ -47,12 +47,11 @@ export function Step({ id, index, activeStep, children, onStepEnter }: StepProps
       ref={ref}
       id={id}
       className={cn(
-        'min-h-[100vh] flex flex-col justify-center transition-opacity duration-1000 w-full',
-        isActive ? 'opacity-100' : 'opacity-30'
+        'min-h-[100vh] flex flex-col justify-center transition-opacity duration-1000 w-full opacity-100'
       )}
       style={{ paddingBottom: '20vh', paddingTop: '20vh' }}
     >
-      <div className="w-full bg-white/60 backdrop-blur-md border-l-4 border-brand p-6 md:p-10 relative shadow-sm">
+      <div className="w-full border-l-4 border-brand p-6 md:p-10 relative">
         <div className="absolute top-0 right-0 p-2 text-slate-400 font-mono text-xs select-none">
           SEC_{String(index).padStart(2, '0')}
         </div>

@@ -49,9 +49,6 @@ export default function App() {
               <h1 className="text-[12vw] md:text-[6vw] font-bold tracking-tighter uppercase leading-none text-slate-800">
                 <span className="glitch opacity-80" data-text="ÇÜRÜME">ÇÜRÜME</span>
               </h1>
-              <div className="mt-8 border border-slate-300 p-4 text-xs text-brand tracking-widest uppercase bg-white/50 backdrop-blur">
-                Anomali Tespiti
-              </div>
             </motion.div>
           )}
 
@@ -59,7 +56,7 @@ export default function App() {
             <motion.div key="v1" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ opacity: 0 }} className="w-full max-w-lg">
               <div className="grid grid-cols-1 gap-6 text-center">
                 <div className="border border-brand/30 bg-white p-8 relative overflow-hidden shadow-sm">
-                  <div className="text-slate-400 mb-2 text-sm uppercase tracking-widest">Kayıp Canlar</div>
+                  <div className="text-slate-400 mb-2 text-sm uppercase tracking-widest">KAYIP CANLAR</div>
                   <div className="text-7xl font-sans text-brand tracking-tighter font-bold">
                     <Counter to={2225} duration={1.5} />
                   </div>
@@ -67,13 +64,13 @@ export default function App() {
                 </div>
                 <div className="grid grid-cols-2 gap-6">
                   <div className="border border-slate-200 bg-white p-6 text-left flex flex-col justify-between shadow-sm">
-                    <div className="text-slate-400 text-xs uppercase mb-4">Vaka Sayısı</div>
+                    <div className="text-slate-400 text-xs uppercase mb-4">VAKA SAYISI</div>
                     <div className="text-4xl text-slate-800 font-bold tracking-tighter">
                       <Counter to={3422} duration={1.8} />
                     </div>
                   </div>
                   <div className="border border-slate-200 bg-slate-100 p-6 text-left flex flex-col justify-between shadow-sm">
-                    <div className="text-slate-400 text-xs uppercase mb-4">Yaralı</div>
+                    <div className="text-slate-400 text-xs uppercase mb-4">YARALI</div>
                     <div className="text-4xl text-slate-600 font-bold tracking-tighter">
                       <Counter to={3167} duration={2} />
                     </div>
@@ -86,7 +83,7 @@ export default function App() {
           {step === 2 && (
             <motion.div key="v2" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ opacity: 0, x: -50 }} className="w-full flex-col flex items-center justify-center">
                <div className="text-slate-400 mb-2 uppercase tracking-widest text-sm relative bg-white/80 px-4 py-1 rounded">
-                  Verilen Tedbir Kararı (Son 9 Yıl)
+                  VERİLEN TEDBİR KARARI (SON 9 YIL)
                </div>
                <div className="relative border-b-8 border-brand/20 pb-2 mb-8">
                  <h2 className="text-5xl md:text-6xl font-sans font-bold text-slate-800 tracking-tighter tabular-nums z-10 relative">
@@ -147,14 +144,35 @@ export default function App() {
           )}
 
           {step === 4 && (
-            <motion.div key="v4" initial={{ scale: 1.2, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 1 }} exit={{ opacity: 0 }} className="text-center relative">
-               <div className="absolute inset-0 flex items-center justify-center -z-10">
-                 <div className="w-[150%] h-[150%] bg-brand/10 rounded-full blur-3xl mix-blend-multiply" />
+            <motion.div key="v4" initial={{ scale: 1.2, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 1 }} exit={{ opacity: 0 }} className="text-center relative w-full h-full flex items-center justify-center">
+               <div className="absolute inset-0 overflow-hidden opacity-20">
+                 <div className="grid grid-cols-8 grid-rows-8 w-full h-full border-t border-l border-slate-300">
+                    {Array.from({ length: 64 }).map((_, i) => (
+                      <motion.div 
+                        key={i} 
+                        initial={{ opacity: 1 }}
+                        animate={{ opacity: [1, 0, 1] }}
+                        transition={{ duration: Math.random() * 2 + 1, repeat: Infinity, delay: Math.random() * 2 }}
+                        className="border-r border-b border-slate-300" 
+                      />
+                    ))}
+                 </div>
                </div>
-               <div className="border border-brand p-12 relative bg-white shadow-2xl">
+               <div className="absolute inset-0 flex items-center justify-center -z-10">
+                 <div className="w-[150%] h-[150%] bg-brand/5 rounded-full blur-3xl mix-blend-multiply" />
+               </div>
+               <div className="border-4 border-brand p-12 relative bg-white shadow-2xl z-10 max-w-md mx-auto">
                  <Activity className="w-16 h-16 text-brand mx-auto mb-8 animate-pulse" />
-                 <h2 className="text-3xl md:text-5xl text-slate-800 font-sans font-bold tracking-tight mb-4">SİSTEM TEHLİKEDE</h2>
-                 <p className="text-slate-500 text-sm max-w-sm mx-auto uppercase tracking-widest">Ahlaki çözülme tamamlanmak üzere.</p>
+                 <h2 className="text-3xl md:text-5xl text-slate-800 font-sans font-bold tracking-tight mb-4 leading-none">ANALİZ SONUCU: <br/><span className="text-brand">KRİTİK</span></h2>
+                 <div className="w-full h-1 bg-slate-100 my-6 overflow-hidden">
+                    <motion.div 
+                      initial={{ width: 0 }} 
+                      animate={{ width: '100%' }} 
+                      transition={{ duration: 5, repeat: Infinity }}
+                      className="h-full bg-brand" 
+                    />
+                 </div>
+                 <p className="text-slate-500 text-sm max-w-sm mx-auto uppercase tracking-widest font-mono">TOPLUMSAL BAĞLAR ÇÖZÜLÜYOR. AHLAKİ PUSULA YİTİRİLDİ.</p>
                </div>
             </motion.div>
           )}
@@ -167,16 +185,16 @@ export default function App() {
     <div className="bg-slate-50 font-sans selection:bg-brand selection:text-white text-slate-800">
       
       {/* Üst Navigasyon Menüsü */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-white border-b border-slate-200">
         <div className="w-full grid grid-cols-5 text-[10px] md:text-xs font-mono tracking-widest uppercase divide-x divide-slate-200">
-          <a href="#intro" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors hidden sm:block">Sistem Hatası</a>
-          <a href="#intro" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors sm:hidden">Giriş</a>
-          <a href="#siddet" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors">Şiddet</a>
-          <a href="#adalet" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors">Adalet</a>
-          <a href="#dijital" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors hidden sm:block">Dijital Çürüme</a>
-          <a href="#dijital" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors sm:hidden">Dijital</a>
-          <a href="#ahlaki" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors hidden sm:block">Ahlaki Çözülme</a>
-          <a href="#ahlaki" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors sm:hidden">Sonuç</a>
+          <a href="#intro" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors hidden sm:block">SİSTEM HATASI</a>
+          <a href="#intro" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors sm:hidden">GİRİŞ</a>
+          <a href="#siddet" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors">ŞİDDET</a>
+          <a href="#adalet" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors">ADALET</a>
+          <a href="#dijital" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors hidden sm:block">DİJİTAL ÇÜRÜME</a>
+          <a href="#dijital" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors sm:hidden">DİJİTAL</a>
+          <a href="#ahlaki" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors hidden sm:block">AHLAKİ ÇÖZÜLME</a>
+          <a href="#ahlaki" className="py-4 text-center text-slate-500 hover:text-brand hover:bg-slate-50 transition-colors sm:hidden">SONUÇ</a>
         </div>
       </nav>
 
@@ -189,7 +207,7 @@ export default function App() {
         
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }} className="w-full max-w-6xl mx-auto z-10">
           <h1 className="text-6xl md:text-[8vw] font-bold tracking-tighter text-slate-900 mb-8 leading-none uppercase">
-            Sessizce <br className="md:hidden" /><span className="text-brand relative inline-block glitch" data-text="Çürüyenler">Çürüyenler</span>
+            SESSİZCE <br className="md:hidden" /><span className="text-brand relative inline-block glitch" data-text="ÇÜRÜYENLER">ÇÜRÜYENLER</span>
           </h1>
           <div className="w-24 h-1 bg-brand mx-auto mb-10" />
           <p className="text-xl md:text-3xl text-slate-600 max-w-4xl mx-auto font-light leading-relaxed">
@@ -214,8 +232,8 @@ export default function App() {
       {/* Sol Pane - Haberler */}
       <div className="w-full md:w-3/5 min-h-screen border-r border-slate-200 z-10 px-6 md:px-16 lg:px-24">
         
-        <header className="sticky top-12 md:top-14 pt-8 pb-4 bg-slate-50/90 backdrop-blur z-40 border-b border-slate-200 mb-8 flex justify-between items-center">
-            <div className="text-lg font-bold tracking-tighter uppercase text-slate-800 flex items-center gap-2">
+        <header className="sticky top-12 md:top-14 pt-8 pb-4 bg-slate-50 z-40 border-b border-slate-200 mb-8 flex justify-between items-center">
+            <div className="text-lg font-bold tracking-tighter text-slate-800 flex items-center gap-2">
               <div className="w-3 h-3 bg-brand" /> ÇÜRÜME RAPORU
             </div>
             <div className="text-xs text-slate-500 font-mono hidden sm:block">DURUM: KRİTİK</div>
@@ -227,16 +245,38 @@ export default function App() {
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 text-slate-900 leading-tight">
               Sessiz ve Derinden: <br/><span className="text-slate-400 font-medium">Bir Sistem Hatası</span>
             </h1>
-            <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed">
+            <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed mb-12">
               <p>
                 Her şeyin bir gecede değil, yavaşça, hissettirmeden gerçekleştiğini anladığımızda çok geçti. Sokaklarda yankılanan silah sesleri, dijital dünyada birbirini parçalayan kalabalıkların uğultusu ve mahkeme salonlarına yığılan milyonlarca dosya... 
               </p>
-              <p>
-                Karşımızda duran tablo sadece güncel haber istatistiklerinden ibaret değil; bir toplumun adım adım kendi ruhunu nasıl kaybettiğinin, ahlaki pusulasını nasıl yitirdiğinin hikayesi.
-              </p>
             </div>
+
+            {/* Haber Özet Listesi */}
+            <div className="grid grid-cols-1 gap-4 mb-12 border-l-2 border-brand/20 pl-6">
+              <div className="group cursor-pointer">
+                <h3 className="text-slate-800 font-bold text-lg">01. Şiddet Sarmalı</h3>
+                <p className="text-slate-500 text-sm mb-2">3.422 silahlı olay, sönen binlerce hayat.</p>
+                <a href="#siddet" className="text-brand text-xs font-mono uppercase tracking-widest hover:underline">DETAYINA GİT →</a>
+              </div>
+              <div className="group cursor-pointer">
+                <h3 className="text-slate-800 font-bold text-lg">02. Adli Enflasyon</h3>
+                <p className="text-slate-500 text-sm mb-2">1 milyonu aşan koruma kararı ve tıkanan adalet.</p>
+                <a href="#adalet" className="text-brand text-xs font-mono uppercase tracking-widest hover:underline">DETAYINA GİT →</a>
+              </div>
+              <div className="group cursor-pointer">
+                <h3 className="text-slate-800 font-bold text-lg">03. Dijital Linç</h3>
+                <p className="text-slate-500 text-sm mb-2">Ekran başında büyüyen kolektif öfke.</p>
+                <a href="#dijital" className="text-brand text-xs font-mono uppercase tracking-widest hover:underline">DETAYINA GİT →</a>
+              </div>
+              <div className="group cursor-pointer">
+                <h3 className="text-slate-800 font-bold text-lg">04. Ahlaki Yıkım</h3>
+                <p className="text-slate-500 text-sm mb-2">Yitirilen vicdan ve toplumsal erozyon.</p>
+                <a href="#ahlaki" className="text-brand text-xs font-mono uppercase tracking-widest hover:underline">DETAYINA GİT →</a>
+              </div>
+            </div>
+
             <div className="mt-12 flex items-center text-xs text-brand font-mono uppercase tracking-widest gap-2">
-               <ArrowDown className="w-4 h-4 animate-bounce" /> İncelemeye Başla
+               <ArrowDown className="w-4 h-4 animate-bounce" /> AŞAĞI KAYDIRARAK TANIKLIK EDİN
             </div>
           </Step>
 
@@ -244,17 +284,17 @@ export default function App() {
           <Step id="siddet" index={1} activeStep={activeStep} onStepEnter={setActiveStep}>
             <Crosshair className="w-10 h-10 text-brand mb-6" />
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-slate-900">Şiddetin Sıradanlaşması</h2>
-            <img src="https://images.unsplash.com/photo-1605806616949-1e87b487fc2f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Şiddetin Sıradanlaşması" className="w-full object-cover aspect-video mb-8 grayscale opacity-90 border border-slate-200 pointer-events-none shadow-sm" />
+            <img src="https://images.unsplash.com/photo-1605806616949-1e87b487fc2f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Şiddetin Sıradanlaşması" className="w-full object-cover aspect-video mb-8 grayscale opacity-90 border border-slate-200 pointer-events-none" />
             <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed">
               <p>
                 Umut Vakfı'nın hazırladığı 2025 raporunu açtığınızda karşınızda sadece sayılar değil, sönen hayatlar ve kararan evler beliriyor. Türkiye genelinde sadece bir yıl içinde <strong>3.422 silahlı şiddet olayı</strong> haber merkezlerine ve polis telsizlerine düştü. Artık haber bültenlerindeki üçüncü sayfa şiddeti, gündelik yaşamın arka plan gürültüsü haline geldi.
               </p>
               <p>
-                Sokak başlarında, trafikteki en ufak bir tartışmada veya sıradan bir anlaşmazlıkta artık kelimeler değil, namlular konuşuyor. İnsan hayatının faturasının bir anlık öfkeye kesildiği bu düzende, <strong>2.225 insan</strong> hayatını kaybetti. Şiddet artık bir 'istisna' olmaktan çıkıp, günlük rutinimizin kanlı bir parçasına dönüştü. Silahlanmanın bu denli kolay, can almanın bu kadar ucuz olduğu bir ortamda sokaklar her geçen gün biraz daha güvensizleşiyor.
+                Sokak başlarında, trafikteki en ufak bir tartışmada veya sıradan bir anlaşmazlıkta artık kelimeler değil, namlular konuşuyor. İnsan hayatının faturasının bir anlık öfkeye kesildiği bu düzende, <strong>2.225 insan</strong> hayatını kaybetti. Şiddet artık bir 'istisna' olmaktan çıkıp, günlük rutinimizin kanlı bir parçasına dönüştü.
               </p>
             </div>
-            <a href="https://www.odatv.com/guncel/umut-vakfinin-turkiye-silahli-siddet-haritasi-2025-raporu-on-binlerce-kisi-oldu-bilancolari-kiyasladik-120137621" target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center text-sm font-mono text-slate-500 hover:text-brand transition-colors border-b border-slate-300 pb-1 w-fit font-bold">
-              ODATV Raporu İncele <ExternalLink className="w-4 h-4 ml-2" />
+            <a href="#adalet" className="mt-8 inline-flex items-center text-sm font-mono text-slate-500 hover:text-brand transition-colors border-b border-slate-300 pb-1 w-fit font-bold tracking-wider">
+              SIRADAKİ BÖLÜM: ADALET <ArrowDown className="w-4 h-4 ml-2" />
             </a>
           </Step>
 
@@ -262,17 +302,17 @@ export default function App() {
           <Step id="adalet" index={2} activeStep={activeStep} onStepEnter={setActiveStep}>
             <AlertTriangle className="w-10 h-10 text-brand mb-6" />
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-slate-900">Tedbir Kararları Enflasyonu</h2>
-            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop" alt="Tedbir Kararları" className="w-full object-cover aspect-video mb-8 grayscale opacity-90 border border-slate-200 pointer-events-none shadow-sm" />
+            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop" alt="Tedbir Kararları" className="w-full object-cover aspect-video mb-8 grayscale opacity-90 border border-slate-200 pointer-events-none" />
             <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed">
               <p>
                 Kan ve şiddetin gölgesinde adalet arayışı uçsuz bucaksız bir çaresizlikle boğuşuyor. Adalet Bakanlığı’nın 2025 istatistikleri, idari mahkemelerin ve emniyet güçlerinin nasıl bir evrak ve süreç yükü altında ezildiğini şeffaf bir şekilde netleştiriyor.
               </p>
               <p>
-                Özellikle kadına yönelik şiddet başvurularında 6284 sayılı yasa kapsamında verilen önleyici tedbir kararları, son 9 yılda yaklaşık 5 kat artarak <strong>1 milyonu aştı</strong>. Ancak asıl korkutucu olan, karar sayısındaki bu enflasyonun şiddeti durduramaması... Koruma kararlarının kağıt üzerinde kaldığı, adaletin hızının cinayet hızına yetişemediği bir noktadayız. Sistem, koruyamadığı canların ardından sadece daha fazla tedbir belgesi üreterek durumu yönetmeye çalışıyor.
+                Özellikle kadına yönelik şiddet başvurularında 6284 sayılı yasa kapsamında verilen önleyici tedbir kararları, son 9 yılda yaklaşık 5 kat artarak <strong>1 milyonu aştı</strong>. Ancak asıl korkutucu olan, karar sayısındaki bu enflasyonun şiddeti durduramaması...
               </p>
             </div>
-             <a href="https://www.cumhuriyet.com.tr/turkiye/adalet-bakanligi-2025-verilerini-acikladi-siddet-basvurularinda-dikkat-cekici-artis-2493541" target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center text-sm font-mono text-slate-500 hover:text-brand transition-colors border-b border-slate-300 pb-1 w-fit font-bold">
-              CUMHURİYET Raporu İncele <ExternalLink className="w-4 h-4 ml-2" />
+             <a href="#dijital" className="mt-8 inline-flex items-center text-sm font-mono text-slate-500 hover:text-brand transition-colors border-b border-slate-300 pb-1 w-fit font-bold tracking-wider">
+              SIRADAKİ BÖLÜM: DİJİTAL <ArrowDown className="w-4 h-4 ml-2" />
             </a>
           </Step>
 
@@ -280,17 +320,17 @@ export default function App() {
           <Step id="dijital" index={3} activeStep={activeStep} onStepEnter={setActiveStep}>
             <Users className="w-10 h-10 text-brand mb-6" />
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-slate-900">Linç Kültürü ve Yalnızlaşma</h2>
-            <img src="https://images.unsplash.com/photo-1557081998-05f784dcdd41?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dijital Çürüme" className="w-full object-cover aspect-video mb-8 grayscale opacity-90 border border-slate-200 pointer-events-none shadow-sm" />
+            <img src="https://images.unsplash.com/photo-1557081998-05f784dcdd41?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dijital Çürüme" className="w-full object-cover aspect-video mb-8 grayscale opacity-90 border border-slate-200 pointer-events-none" />
             <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed">
               <p>
                 Çürüme sadece fiziksel sokaklarımızı değil, saatlerimizi geçirdiğimiz dijital mahalleleri de ele geçirmiş durumda. Modern insan, karanlık bir odadaki derin yalnızlığını, klavye başında başkalarına acımasızca saldırarak gidermeye çalışıyor.
               </p>
               <p>
-                Sosyal medya platformları birer iletişim aracı olmaktan çıkıp sınırların belirsizleştiği bir linç arenasına dönüştü. İnsanlar "yalnız olmadıklarını" hissedebilmek uğruna sanal kalabalıkların öfkesine ortak oluyor, hedefe konulan bir isme karşı en ufak bir empati kırıntısı bile taşımadan öfke kusuyorlar. İtibarın, kelimelerin sivri uçlarıyla saniyeler içinde yok edildiği bu dijital mobing kültürü, aslında hepimizin içindeki kolektif saldırganlığın tatmin bulduğu en tehlikeli ve en sessiz yaradır. 
+                Sosyal medya platformları birer iletişim aracı olmaktan çıkıp sınırların belirsizleştiği bir linç arenasına dönüştü. İnsanlar "yalnız olmadıklarını" hissedebilmek uğruna sanal kalabalıkların öfkesine ortak oluyor, hedefe konulan bir isme karşı en ufak bir empati kırıntısı bile taşımadan öfke kusuyorlar.
               </p>
             </div>
-            <a href="https://www.gelisim.edu.tr/tr/gelisim-haber-insanlar-yalniz-olmadiklarini-hissetmek-icin-sosyal-medyada-linc-ediyor" target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center text-sm font-mono text-slate-500 hover:text-brand transition-colors border-b border-slate-300 pb-1 w-fit font-bold">
-              Akademik İncelemeyi Oku <ExternalLink className="w-4 h-4 ml-2" />
+            <a href="#ahlaki" className="mt-8 inline-flex items-center text-sm font-mono text-slate-500 hover:text-brand transition-colors border-b border-slate-300 pb-1 w-fit font-bold tracking-wider">
+              SIRADAKİ BÖLÜM: SONUÇ <ArrowDown className="w-4 h-4 ml-2" />
             </a>
           </Step>
 
@@ -298,17 +338,16 @@ export default function App() {
           <Step id="ahlaki" index={4} activeStep={activeStep} onStepEnter={setActiveStep}>
             <div className="w-8 h-8 bg-brand mb-6" />
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-slate-900">Yekûn: Ahlaki Çözülme</h2>
-            <img src="https://images.unsplash.com/photo-1549487195-2c9ff7bd9ad1?q=80&w=1200&auto=format&fit=crop" alt="Ahlaki Çözülme" className="w-full object-cover aspect-video mb-8 grayscale opacity-90 border border-slate-200 pointer-events-none shadow-sm" />
             <div className="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed">
               <p>
                 <em className="text-slate-800 font-bold">"Ekonomik kriz yok, çürüme var."</em> Ekonomi gazetelerinin bile doğrudan manşetlerine taşınan bu yakıcı teşhis, içine sürüklendiğimiz dönemin belgesidir. Cebimizdeki paranın enflasyon karşısında erimesinden çok daha sinsi ve yıkıcı olan gerçek, insana, hukuka, adalete ve birbirimize olan merhametimizin tükenmesidir.
               </p>
               <p>
-                Ülkelerin ekonomileri pragmatik kararlar, doğru para politikaları ve istihdam ile toparlanabilir. Ancak ahlaki tahribatın, güvensizliğin ve günden güne daha da normalleşen sosyal şizofreninin restorasyonu nesiller boyu sürer. Karşı karşıya olduğumuz asıl kriz cüzdanlarımızda değil, vicdanlarımızdadır; kriz tamamen varoluşsal ve ahlakidir.
+                Ülkelerin ekonomileri pragmatik kararlar, doğru para politikaları ve istihdam ile toparlanabilir. Ancak ahlaki tahribatın, güvensizliğin ve günden güne daha da normalleşen sosyal şizofreninin restorasyonu nesiller boyu sürer. Karşı karşıya olduğumuz asıl kriz cüzdanlarımızda değil, vicdanlarımızdadır.
               </p>
             </div>
-            <a href="https://www.ekonomigazetesi.com/kose-yazisi/ekonomik-kriz-yok-curume-var-derken-71151" target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center text-sm font-mono text-slate-500 hover:text-brand transition-colors border-b border-slate-300 pb-1 w-fit font-bold">
-              Ekonomi Gazetesi İçeriği <ExternalLink className="w-4 h-4 ml-2" />
+            <a href="#intro" className="mt-8 inline-flex items-center text-sm font-mono text-slate-500 hover:text-brand transition-colors border-b border-slate-300 pb-1 w-fit font-bold tracking-wider">
+              BAŞA DÖN <ArrowDown className="w-4 h-4 ml-2 rotate-180" />
             </a>
           </Step>
           
@@ -316,7 +355,7 @@ export default function App() {
              <div className="text-center">
                 <div className="text-slate-400 font-mono text-xs uppercase tracking-widest flex items-center justify-center gap-2">
                   <div className="w-1 h-3 bg-slate-400" />
-                  Rapor Sonu
+                  RAPOR SONU
                 </div>
              </div>
           </div>
